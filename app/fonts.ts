@@ -1,9 +1,9 @@
 import localFont from "next/font/local";
 
-export const myFont = localFont({
+export const suisse = localFont({
   src: [
     {
-      path: "../public/fonts/fonnts.com-Suisse_Intl_Book.ttf",
+      path: "../public/fonts/SuisseIntl-Regular.woff2",
       weight: "400",
       style: "normal",
     },
@@ -13,10 +13,11 @@ export const myFont = localFont({
       style: "light",
     },
     {
-      path: "../public/fonts/fonnts.com-Suisse_Intl_Bold.ttf",
-      weight: "700",
-      style: "bold",
+      path: "../public/fonts/SuisseIntl-Medium.woff2",
+      weight: "500",
+      style: "regular",
     },
   ],
   variable: "--font-suisse",
+  fallback: ["sans-serif"]
 });

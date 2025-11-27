@@ -6,15 +6,15 @@ import Navbar from "@/components/Navigation/Navbar";
 import Footer from "@/components/Navigation/Footer";
 import NavbarNew from "@/components/Navigation/NavbarNew";
 import localFont from "next/font/local";
-import { myFont } from "./fonts";
+import { suisse } from "./fonts";
 
 // Load Inter font
-export const suisse = localFont({
-  src: "../public/fonts/fonnts.com-Suisse_Intl_Book.ttf",
-  weight: "400",
-  style: "normal",
-  variable: "--font-suisse", // just like --font-inter
-});
+// export const suisse = localFont({
+//   src: "../public/fonts/fonnts.com-Suisse_Intl_Book.ttf",
+//   weight: "400",
+//   style: "normal",
+//   variable: "--font-suisse", // just like --font-inter
+// });
 
 export const metadata: Metadata = {
   title: "The Internet Company",
@@ -27,8 +27,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={myFont.variable}>
-      <body  >
+    <html lang="en" >
+      <body  className={suisse.variable}>
         <LenisProvider>
           <Navbar />
           {children}
