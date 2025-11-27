@@ -4,67 +4,67 @@ import Image from "next/image";
 const Work = () => {
   const WorksList = [
     {
-      title: "Akwad UAE",
+      title: "Akwad\nUAE",
       subtitle: "Brand Identity, Website",
       image: "/akwadUae.svg",
       name: "Akwad UAE",
     },
     {
-      title: "Summr India",
+      title: "Summr\n India",
       subtitle: "Branding & 3D Website",
       image: "/works-2.svg",
       name: "Summr India",
     },
     {
-      title: "BCF Cast Factory",
+      title: "BCF\n Cast Factory",
       subtitle: "UIUX & Web",
       image: "/works-3.svg",
       name: "BCF Cast Factory",
     },
     {
-      title: "Zaap Energy",
+      title: "Zaap\n Energy",
       subtitle: "Brand Identity, Web & App",
       image: "/works-4.svg",
       name: "Zaap Energy",
     },
     {
-      title: "Panchayat Amazon Prime",
+      title: "Panchayat \nAmazon Prime",
       subtitle: "WebApp",
       image: "/works-5.svg",
       name: "Panchayat Amazon Prime",
     },
     {
-      title: "Enclave Block Chain",
+      title: "Enclave\nBlock Chain",
       subtitle: "UIUX & Web",
       image: "/works-6.svg",
       name: "Enclave Block Chain",
     },
     {
-      title: "Haus of Chaos Chennai",
+      title: "Haus of Chaos\n Chennai",
       subtitle: "Website Development",
       image: "/works-7.svg",
       name: "Haus of Chaos Chennai",
     },
     {
-      title: "2.0 Clothing",
+      title: "2.0\nClothing",
       subtitle: "E-Commerce WebApp",
       image: "/works-8.svg",
       name: "2.0 Clothing",
     },
     {
-      title: "Staap Stories of Art",
+      title: "Staap\nStories of Art",
       subtitle: "Website",
       image: "/works-9.svg",
       name: "Staap Stories of Art",
     },
     {
-      title: "Hashmint India",
+      title: "Hashmint\n India",
       subtitle: "3D Website & Photography",
       image: "/works-10.png",
       name: "Hashmint India",
     },
     {
-      title: "Techvenchure Dubai",
+      title: "Techvenchure\n Dubai",
       subtitle: "3D Website",
       image: "/works-11.svg",
       name: "Techvenchure Dubai",
@@ -76,37 +76,37 @@ const Work = () => {
       name: "Future of Data",
     },
     {
-      title: "Medium Turtles",
+      title: "Medium \nTurtles",
       subtitle: "Brand Identity, Web & App",
       image: "/works-13.svg",
       name: "Medium Turtles",
     },
     {
-      title: "Maxclean India",
+      title: "Maxclean\n India",
       subtitle: "UIUX & Web",
       image: "/works-14.svg",
       name: "Maxclean India",
     },
     {
-      title: "Alati The Truck app",
+      title: "Alati\n The Truck app",
       subtitle: "Brand Identity & Web",
       image: "/works-15.svg",
       name: "Alati The Truck app",
     },
     {
-      title: "Lifestyle Investments",
+      title: "Lifestyle\n Investments",
       subtitle: "3D Web Dev",
       image: "/works-16.svg",
       name: "Lifestyle Investments",
     },
     {
-      title: "DSA Cancer Institute",
+      title: "DSA\n Cancer\n Institute",
       subtitle: "Brand Identity & Web",
       image: "/works-16.svg",
       name: "DSA Cancer Institute",
     },
     {
-      title: "Kondaas Solar Power",
+      title: "Kondaas\n Solar Power",
       subtitle: "3D Website & App",
       image: "/works-18.svg",
       name: "Kondaas Solar Powe",
@@ -130,7 +130,7 @@ const Work = () => {
     <div className="mt-10 p-10">
       <div className="flex justify-between items-center">
         <div className="col-span-1">
-          <h1 className="font-bold text-7xl">Works</h1>
+          <p className=" font-normal text-7xl">Works</p>
         </div>
         <div>
           <Image
@@ -161,8 +161,7 @@ const Work = () => {
               }  `}
             >
               <div className="absolute inset-0 overflow-hidden">
-                <div
-                  className="absolute inset-0 ">
+                <div className="absolute inset-0 ">
                   <Image
                     src={item.image}
                     alt={item.name}
@@ -174,15 +173,15 @@ const Work = () => {
               </div>
               <div className="relative z-10 h-full flex flex-col justify-between p-5 sm:p-6 md:p-8">
                 <div>
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl max-w-full lg:max-w-[200px] sm:max-w-[400px] md:max-w-[200px] leading-tight sm:leading-[40px] md:leading-[50px] tracking-[-0.07em] font-medium text-white">
-                    {item.title}
-                  </h3>
+                  <p className="text-[43.5px] font-light text-white tracking-[-0.07em] max-w-[400px] whitespace-pre-line leading-[45px] sm:leading-[40px] md:leading-[50px]">
+  {item.title}
+</p>
                 </div>
 
                 <div className="flex justify-start items-start">
-                  <p className="inline-flex items-start gap-2 px-5 sm:px-6 md:px-4 py-2 sm:py-2.5 md:py-3 bg-transparent  text-white font-normal transition-all duration-300 tracking-tight text-base sm:text-lg md:text-xl lg:text-2xl xl:text-[28px]">
+                  <h3 className="inline-flex items-start font-normal gap-2 px-5 sm:px-6 md:px-4 py-2 sm:py-2.5 md:py-3 bg-transparent  text-white  transition-all duration-300 tracking-tight text-base sm:text-lg md:text-xl lg:text-2xl xl:text-[28px]">
                     {item.subtitle}
-                  </p>
+                  </h3>
                 </div>
               </div>
             </div>

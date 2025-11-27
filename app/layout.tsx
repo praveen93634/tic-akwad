@@ -5,11 +5,15 @@ import LenisProvider from "@/components/Wrapper/LenisScroll";
 import Navbar from "@/components/Navigation/Navbar";
 import Footer from "@/components/Navigation/Footer";
 import NavbarNew from "@/components/Navigation/NavbarNew";
+import localFont from "next/font/local";
+import { myFont } from "./fonts";
 
 // Load Inter font
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
+export const suisse = localFont({
+  src: "../public/fonts/fonnts.com-Suisse_Intl_Book.ttf",
+  weight: "400",
+  style: "normal",
+  variable: "--font-suisse", // just like --font-inter
 });
 
 export const metadata: Metadata = {
@@ -23,8 +27,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} antialiased`}>
+    <html lang="en" className={myFont.variable}>
+      <body  >
         <LenisProvider>
           <Navbar />
           {children}

@@ -22,8 +22,12 @@ const navItems = [
     name: "Client Portal",
     link: "https://www.theinternetcompany.one/client.html",
   },
+  {
+    name: "Your Brand",
+    link: "/",
+  },
   { name: "Archive", link: "/archive" },
-  { name: "Branding", link: "/" },
+  { name: "Abu Dhabi", link: "/" },
 ];
 
 const FnavItems = [
@@ -353,7 +357,7 @@ const Navbar = () => {
               </Link>
             ))}
           </div> */}
-          <div className="relative hidden lg:flex flex-row items-center gap-1 bg-white/20 backdrop-blur-md rounded-full px-2 py-2 ">
+          <div className="relative hidden lg:flex flex-row items-center bg-white/20 backdrop-blur-md rounded-[20.52px] px-2 py-2 ">
             {/* Floating background that moves to hovered/active item */}
             <div
               className="absolute bg-black/90 rounded-2xl transition-all duration-300 ease-out"
@@ -380,7 +384,7 @@ const Navbar = () => {
                 onMouseLeave={() => setHoveredIndex(null)}
               >
                 <div className="px-4 py-2 text-center">
-                  <span className="text-sm md:text-[13.5px] font-medium text-white whitespace-nowrap">
+                  <span className="text-[15.3px] md:text-[13.5px] font-medium text-white whitespace-nowrap">
                     {item.name}
                   </span>
                 </div>
@@ -391,11 +395,7 @@ const Navbar = () => {
           {/* CTA Button - Responsive sizing */}
           <Link
             href="/contact"
-            className={`text-sm sm:text-base lg:text-lg px-3 sm:px-4 py-1 sm:py-1 rounded-xl font-medium transition-all duration-300 shadow-lg ${
-              isWhiteBg
-                ? "bg-while text-black px-5 py-2  rounded-full hover:bg-black/80 transition-colors duration-300 hover:scale-105"
-                : "bg-black text-white px-5 py-2 rounded-full hover:bg-black/80 transition-colors duration-300"
-            }`}
+            className="text-sm sm:text-base lg:text-[16px] p-(14px,20px,14px,20px) sm:px-4  rounded-[15.32] font-medium transition-all duration-300 shadow-lg bg-black text-white px-5 py-2  hover:bg-black/80"
           >
             Let&apos;s talk
           </Link>
