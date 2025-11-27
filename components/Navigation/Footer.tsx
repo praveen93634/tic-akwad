@@ -186,43 +186,58 @@ const Footer = () => {
             </ul>
           </div>
         </div> */}
-        <div className="w-full text-white py-10 px-6">
-  {/* Top Section */}
-  <div className="flex justify-around items-center lg:gap-20 sm:flex flex-col gap-2 text-[12px]">
-    <ul className="flex gap-4 opacity-80">
-      <li><a href="#">LinkedIn</a></li>
-      <li><a href="#">Instagram</a></li>
-      <li><a href="#">Privacy Policy</a></li>
-      <li><a href="#">Terms & Conditions</a></li>
-    </ul>
+        <div className="w-full text-white py-1 px-6">
+          <div className="flex justify-around items-center lg:gap-20 flex-col lg:flex-row gap-2 text-[12px]">
+            <ul className="flex gap-4 opacity-80">
+              <li>
+                <a href="#">LinkedIn</a>
+              </li>
+              <li>
+                <a href="#">Instagram</a>
+              </li>
+              <li>
+                <a href="#">Privacy Policy</a>
+              </li>
+              <li>
+                <a href="#">Terms & Conditions</a>
+              </li>
+            </ul>
 
-    <h1 className="opacity-80">© Copyrights The Internet Company</h1>
-  </div>
+            <h1 className="opacity-80">© Copyrights The Internet Company</h1>
+          </div>
 
-  {/* Big Title */}
-  <div className="flex justify-center sm:dis-none">
-    <span className="font-semibold leading-none text-center tracking-tight"
-      style={{ fontSize: "clamp(32px, 12vw, 150px)" }}
-    >
-      TheInternetCompany
-    </span>
-  </div>
+          <div className="flex justify-center">
+            <span
+              className="font-semibold leading-none lg:text-[150px] text-[40px] text-center tracking-tight"
+            >
+              TheInternetCompany
+            </span>
+          </div>
 
-  {/* Bottom Navigation */}
- 
-  <div className="flex justify-center mt-5  text-[12px]">
-     <div className="w-100"></div>
-    <ul className="flex gap-3 opacity-90">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Archives</a></li>
-      <li><a href="#">Design House</a></li>
-      <li><a href="#">Client Portal</a></li>
-      <li><a href="#">Contact Us</a></li>
-    </ul>
-  </div>
-</div>
-
+          <div className="flex justify-center mt-5  text-[12px]">
+            <div className="lg:w-100"></div>
+            <ul className="flex  gap-3 opacity-90">
+              <li>
+                <a href="#">Home</a>
+              </li>
+              <li>
+                <a href="#">About</a>
+              </li>
+              <li>
+                <a href="#">Archives</a>
+              </li>
+              <li>
+                <a href="#">Design House</a>
+              </li>
+              <li>
+                <a href="#">Client Portal</a>
+              </li>
+              <li>
+                <a href="#">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
       {/* </div> */}
     </footer>
