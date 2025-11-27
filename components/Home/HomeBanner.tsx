@@ -117,7 +117,7 @@ const HomeBanner = () => {
         />
 
         <div className="absolute inset-0 flex flex-col items-center justify-center z-20 px-10 h-2/3 translate-y-1/3">
-          <h1 className=" text-[30px] md:text-[60px] lg:text-[90px] text-center font-bold lg:font-light leading-[40px] md:leading-[70px] lg:leading-[90px] tracking-tight text-white mb-2">
+          <h1 className=" text-[30px] md:text-[60px] lg:text-[75px] text-center font-bold lg:font-light leading-[40px] md:leading-[70px] lg:leading-[90px] tracking-tight text-white mb-2">
             A Web Branding House
           </h1>
 
