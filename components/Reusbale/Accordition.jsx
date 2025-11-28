@@ -11,7 +11,7 @@ const Accordition = ({ title, answer }) => {
       >
         <span className="lg:text-[36px] sm:text-lg text-start">{title}</span>
         {/* {accordionOpen ? <span>-</span> : <span>+</span>} */}
-        <svg
+       <span > <svg
           className="fill-white shrink-0 ml-8"
           width="16"
           height="16"
@@ -35,7 +35,7 @@ const Accordition = ({ title, answer }) => {
               accordionOpen && "!rotate-180"
             }`}
           />
-        </svg>
+        </svg></span>
       </button>
       <div
         className={`grid overflow-hidden transition-all duration-300 ease-in-out text-white text-lg ${
@@ -44,7 +44,7 @@ const Accordition = ({ title, answer }) => {
             : "grid-rows-[0fr] opacity-0"
         }`}
       >
-        <div className="overflow-hidden">{answer}</div>
+        <div className="overflow-hidden lg:text-2xl">{answer}</div>
       </div>
     </div>
   )

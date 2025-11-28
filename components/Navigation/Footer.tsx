@@ -57,14 +57,14 @@ const Footer = () => {
     >
       <div className="container mx-auto px-4 sm:px-6 md:px-7 py-8 md:py-15 h-full flex flex-col justify-between">
         {/* Main Content Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 gap-4 sm:gap-6 mb-8 md:mb-16 flex-1 pt-12 sm:pt-16 md:pt-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 gap-4 sm:gap-4 mb-8 md:mb-16 flex-1 pt-12 sm:pt-16 md:pt-20">
           {content.map((item, index) => {
             const parallaxOffset = scrollY * 15;
 
             return (
               <div
                 key={index}
-                className="relative overflow-hidden rounded-xl sm:rounded-2xl transition-all duration-500 hover:shadow-2xl min-h-[400px] sm:min-h-[450px] md:min-h-[550px] lg:min-h-[620px]"
+                className="relative overflow-hidden rounded-xl sm:rounded-xl transition-all duration-500 hover:shadow-2xl min-h-[400px] sm:min-h-[450px] md:min-h-[550px] lg:min-h-[640px] "
               >
                 {/* Image Section with Parallax */}
                 <div className="absolute inset-0 overflow-hidden">
@@ -90,7 +90,7 @@ const Footer = () => {
                 <div className="relative z-10 h-full flex flex-col justify-between p-5 sm:p-6 md:p-8">
                   {/* Title at Top */}
                   <div>
-                    <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl max-w-full sm:max-w-[400px] md:max-w-[470px] leading-tight sm:leading-[40px] md:leading-[50px] tracking-[-0.07em] font-medium text-white">
+                    <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl max-w-full sm:max-w-[400px] md:max-w-[470px] leading-tight sm:leading-[40px] md:leading-[50px] tracking-[-0.07em] font-normal text-white">
                       {item.name}
                     </h3>
                   </div>
@@ -208,7 +208,7 @@ const Footer = () => {
 
           <div className="flex flex-wrap justify-center">
             <span
-              className="font-normal leading-none lg:text-[160px] text-[28px] md:text-[80px] text-center tracking-tight"
+              className="font-light leading-none lg:text-[160px] text-[28px] md:text-[80px] text-center tracking-tight"
             >
               TheInternetCompany
             </span>

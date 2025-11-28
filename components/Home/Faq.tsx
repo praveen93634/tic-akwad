@@ -46,15 +46,17 @@ const Faq = () => {
   ];
   return (
     <div>
-      <div className="flex lg:justify-start justify-center lg:mx-60  mt-20">
-        <h1 className="lg:text-[60px] text-[35px]">Frequenty Asked Question</h1>
+      <div className="flex lg:justify-start justify-center lg:mx-10  mt-20">
+        <h1 className="lg:text-[80px] text-[35px]">Frequenty Asked Question</h1>
       </div>
-      <div className="flex flex-col mx-auto lg:max-w-8xl sm:max-w-full p-10">
-        <div >
+      <div className="flex flex-col mx-auto lg:max-w-8xl sm:max-w-full p-15">
+        <div>
           {faqList.map((faq, index) => (
-            <div key={index} className="p-2">
+            <div key={index} className="p-3">
               <Accordion title={faq.question} answer={faq.answer} />
-              <div className="w-full h-px bg-white mt-6 "></div>
+              {index !== faqList.length-1 && (
+                <div className="w-full h-px bg-white mt-6"></div>
+              )}
             </div>
           ))}
         </div>
