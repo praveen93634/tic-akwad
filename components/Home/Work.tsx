@@ -1,7 +1,19 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 const Work = () => {
+   useEffect(() => {
+    const videos = document.querySelectorAll("video");
+    videos.forEach((video) => {
+      video.load();
+      video.muted = true;
+      video.autoplay = true;
+      video.loop = true;
+      video.controls = false;
+      video.setAttribute("playsinline", "");
+      video.setAttribute("webkit-playsinline", "");
+    });
+  }, []);
   const WorksList = [
     {
       title: "Akwad\nUAE",
@@ -198,7 +210,8 @@ const Work = () => {
                         autoPlay
                         playsInline
                         muted
-                        controlsList="nodownload nofullscreen noplaybackrate noremoteplayback"
+                        loop
+                        preload="auto"
                         className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-100 pointer-events-none"
                       />
                     </a>
