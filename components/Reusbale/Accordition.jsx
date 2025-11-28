@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 
-const Accordition = ({ title, answer }) => {
+const Accordition = ({ title, answer,serviceList,policy }) => {
      const [accordionOpen, setAccordionOpen] = useState(false);
   return (
      <div className="py-2">
