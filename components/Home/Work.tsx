@@ -7,23 +7,27 @@ const Work = () => {
       title: "Akwad\nUAE",
       subtitle: "Brand Identity, Website",
       image: "/akwadUae.svg",
+      url: "https://www.akwad.ae/en",
       name: "Akwad UAE",
     },
     {
       title: "Summr\n India",
       subtitle: "Branding & 3D Website",
+      url: "https://www.shopsummr.com/",
       image: "/works-2.svg",
       name: "Summr India",
     },
     {
       title: "BCF\n Cast Factory",
       subtitle: "UIUX & Web",
+      url: "https://bhumacastfactory.com/",
       image: "/works-3.svg",
       name: "BCF Cast Factory",
     },
     {
       title: "Zaap\n Energy",
       subtitle: "Brand Identity, Web & App",
+      url: "https://zappenergy.in/",
       video: "/zapvideo.webm",
       name: "Zaap Energy",
     },
@@ -31,6 +35,7 @@ const Work = () => {
       title: "Panchayat \nAmazon Prime",
       subtitle: "WebApp",
       image: "/works-5.svg",
+      url: "https://panchayatvoting.com/",
       name: "Panchayat Amazon Prime",
     },
     {
@@ -43,48 +48,56 @@ const Work = () => {
       title: "Haus of Chaos\n Chennai",
       subtitle: "Website Development",
       image: "/works-7.svg",
+      url: "https://www.hausofchaos.co/",
       name: "Haus of Chaos Chennai",
     },
     {
       title: "2.0\nClothing",
       subtitle: "E-Commerce WebApp",
-      image: "/works-8.svg",
+      video: "/2.0_Banner_video_Final_Horizonta_Version_V05.mp4",
+      url: "https://2-0-clothing.vercel.app/",
       name: "2.0 Clothing",
     },
     {
       title: "Staap\nStories of Art",
       subtitle: "Website",
       image: "/works-9.svg",
+      url: "https://staap.in/",
       name: "Staap Stories of Art",
     },
     {
       title: "Hashmint\n India",
       subtitle: "3D Website & Photography",
       video: "/transistion.mp4",
+      url: "https://hashmint.in/",
       name: "Hashmint India",
     },
     {
       title: "Techvenchure\n Dubai",
       subtitle: "3D Website",
       image: "/works-11.svg",
+      url: "https://www.techvenchure.com/",
       name: "Techvenchure Dubai",
     },
     {
       title: "Future of Data",
       subtitle: "Web App Development",
       video: "/Nv-studio.webm",
+      url: "https://vols.noricai.com/",
       name: "Future of Data",
     },
     {
       title: "Medium \nTurtles",
       subtitle: "Brand Identity, Web & App",
       image: "/works-13.svg",
+      url: "https://mediumturtle.com/",
       name: "Medium Turtles",
     },
     {
       title: "Maxclean\n India",
       subtitle: "UIUX & Web",
       image: "/works-14.svg",
+      url: "https://www.themaxclean.com/",
       name: "Maxclean India",
     },
     {
@@ -97,6 +110,7 @@ const Work = () => {
       title: "Lifestyle\n Investments",
       subtitle: "3D Web Dev",
       image: "/works-16.svg",
+      url: "https://lifestyleinvestments.org/",
       name: "Lifestyle Investments",
     },
     {
@@ -109,18 +123,21 @@ const Work = () => {
       title: "Kondaas\n Solar Power",
       subtitle: "3D Website & App",
       image: "/works-18.svg",
+      url: "https://kondaas.vercel.app/",
       name: "Kondaas Solar Powe",
     },
     {
       title: "Architecture",
       subtitle: "Brand Identity & Web",
       video: "/hissn.webm",
+      url: "https://tic-hissin-3vwm.vercel.app/",
       name: "Architecture",
     },
     {
       title: "Bulk Begins",
       subtitle: "Brand Identity, Web & App",
       video: "/Bulkbeings.webm",
+      url: "https://tic-global-bulkbeings.vercel.app/",
       name: "Bulk Begins",
     },
   ];
@@ -162,17 +179,30 @@ const Work = () => {
               }  `}
             >
               <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute inset-0 ">
+                <div className="absolute inset-0">
                   {item.image ? (
-                    <Image
-                      src={item.image}
-                      alt={item.name}
-                      width={1000}
-                      height={1000}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                    />
+                    <a href={item.url} className="pointer-events-auto">
+                      <Image
+                        src={item.image}
+                        alt={item.name}
+                        width={1000}
+                        height={1000}
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110 pointer-events-none"
+                      />
+                    </a>
                   ) : (
-                    <video src={item.video} autoPlay muted loop controls playsInline  controlsList="nodownload nofullscreen noplaybackrate" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-100" />
+                    <a href={item.url} className="pointer-events-auto">
+                      <video
+                        src={item.video}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        controls
+                        controlsList="nodownload nofullscreen noplaybackrate"
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-100 pointer-events-none"
+                      />
+                    </a>
                   )}
                 </div>
               </div>
