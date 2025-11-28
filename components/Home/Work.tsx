@@ -214,7 +214,7 @@ const Work = () => {
                 </div>
 
                 <div className="flex justify-start items-start">
-                  <h3 className="inline-flex items-start font-regular gap-2 px-1 sm:px-6 md:px-4 py-1 sm:py-2.5 md:py-3 bg-transparent  text-white  transition-all duration-300 tracking-tight text-base sm:text-lg md:text-xl lg:text-2xl xl:text-[28px]">
+                  <h3 className="inline-flex items-start font-normal gap-2 px-1 sm:px-6 md:px-4 py-1 sm:py-2.5 md:py-3 bg-transparent  text-white  transition-all duration-300 tracking-tight text-base sm:text-lg md:text-xl lg:text-2xl xl:text-[28px]">
                     {item.subtitle}
                   </h3>
                 </div>
