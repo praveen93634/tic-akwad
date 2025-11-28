@@ -186,7 +186,7 @@ const Work = () => {
                 idx == 15 ||
                 idx == 16 ||
                 idx == 19
-                  ? "lg:col-span-2 sm:col-span-1"
+                  ? "lg:col-span-2 sm:col-span-1": idx==2 ?"bg-[#141414]"
                   : " "
               }  `}
             >
