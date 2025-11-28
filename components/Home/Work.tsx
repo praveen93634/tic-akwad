@@ -199,7 +199,9 @@ const Work = () => {
                         loop
                         playsInline
                         controls
-                        controlsList="nodownload nofullscreen noplaybackrate"
+                        webkit-playsinline
+                        disablePictureInPicture
+                        controlsList="nodownload nofullscreen noplaybackrate noremoteplayback"
                         className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-100 pointer-events-none"
                       />
                     </a>
