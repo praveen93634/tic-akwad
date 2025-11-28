@@ -156,7 +156,7 @@ const Work = () => {
 
   const [scrollY, setScrollY] = useState(0);
   return (
-    <div className="mt-10 p-3 ">
+    <div className="mt-10 p-3 lg:p-10">
       <div className="flex justify-between items-center">
         <div className="col-span-1">
           <p className=" font-normal text-5xl">Works</p>
