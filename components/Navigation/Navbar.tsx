@@ -16,11 +16,11 @@ const navItems = [
   { name: "About", link: "/about" },
   {
     name: "Design House",
-    link: "https://www.theinternetcompany.one/design.html",
+    link: "/design-house",
   },
   {
     name: "Client Portal",
-    link: "https://www.theinternetcompany.one/client.html",
+    link: "/client",
   },
   {
     name: "Your Brand",
@@ -71,6 +71,8 @@ const Navbar = () => {
 
   const isWhiteBg =
     pathname === "/contact" || pathname === "/archive" || pathname === "/about";
+
+    const isClient= pathname === "/client"
 
   // Setup initial element states
   const setupInitialStates = useCallback(() => {
@@ -290,29 +292,61 @@ const Navbar = () => {
     // Cleanup function
     return () => {
       if (scrollTrigger) scrollTrigger.kill();
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      // ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, [setupInitialStates, setupScrollAnimations]);
   useEffect(() => {
-    const targetIndex = hoveredIndex !== null ? hoveredIndex : activeIndex;
+    ScrollTrigger.getAll().forEach((t) => t.kill());
 
-    if (targetIndex !== null && navRefs.current[targetIndex]) {
-      const element = navRefs.current[targetIndex];
-      const parent = element?.parentElement;
+    setupInitialStates();
+    const trigger = setupScrollAnimations();
+    requestAnimationFrame(() => ScrollTrigger.refresh());
 
-      if (element && parent) {
-        const elementRect = element.getBoundingClientRect();
-        const parentRect = parent.getBoundingClientRect();
+    return () => {
+      trigger?.kill();
+    };
+  }, [pathname]);
 
-        setBgStyle({
-          left: element.offsetLeft,
-          width: elementRect.width,
-          opacity: 1,
-        });
-      }
-    } else {
+  // useEffect(() => {
+
+  //   const targetIndex = hoveredIndex ?? activeIndex;
+
+  //   if (targetIndex !== null && navRefs.current[targetIndex]) {
+  //     const element = navRefs.current[targetIndex];
+  //     const parent = element?.parentElement;
+
+  //     if (element && parent) {
+  //       const elementRect = element.getBoundingClientRect();
+  //       const parentRect = parent.getBoundingClientRect();
+
+  //       setBgStyle({
+  //         left: element.offsetLeft,
+  //         width: elementRect.width,
+  //         opacity: 1,
+  //       });
+  //     }
+  //   } else {
+  //     setBgStyle((prev) => ({ ...prev, opacity: 0 }));
+  //   }
+  // }, [hoveredIndex, activeIndex]);
+  useEffect(() => {
+    const index = hoveredIndex ?? activeIndex;
+    // No active/hover → hide background
+    if (index === null) {
       setBgStyle((prev) => ({ ...prev, opacity: 0 }));
+      return;
     }
+    const target = navRefs.current[index];
+    if (!target) return;
+
+    const { offsetLeft, offsetWidth } = target;
+
+    // Move highlight under the element
+    setBgStyle({
+      left: offsetLeft,
+      width: offsetWidth,
+      opacity: 1,
+    });
   }, [hoveredIndex, activeIndex]);
   return (
     <>
@@ -324,18 +358,18 @@ const Navbar = () => {
         <Container className="flex items-center justify-between py-4 sm:py-6 lg:py-10">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href="https://www.theinternetcompany.one">
+            <Link href="/">
               <Image
                 // src={
                 //   isWhiteBg
                 //     ? "https://ik.imagekit.io/99y1fc9mh/TIC_Globe/images/tic%20(3)%201.png?updatedAt=1759839855964"
                 //     : "https://ik.imagekit.io/99y1fc9mh/TIC_Globe/images/newLogo.png?updatedAt=1751867093209"
                 // }
-                src={"/tic_logo.svg"}
+                src={ !isClient ? "/tic_logo.svg" :"/tic_logo_white.png"}
                 alt="The Internet Company Logo"
                 width={200}
                 height={100}
-                className="h-15 sm:h-19 lg:h-20 w-auto"
+                className={!isClient ? "h-15 sm:h-19 lg:h-20 w-auto" :"h-15 sm:h-19 lg:h-30 w-auto"}
                 priority
               />
             </Link>
@@ -357,10 +391,10 @@ const Navbar = () => {
               </Link>
             ))}
           </div> */}
-          <div className="relative hidden lg:flex flex-row items-center bg-white/20 backdrop-blur-md rounded-[20.52px] px-2 py-2 ">
+          <div className="relative hidden lg:flex flex-row items-center bg-white/20 backdrop-blur-md rounded-[20.52px] px-2 py-2">
             {/* Floating background that moves to hovered/active item */}
             <div
-              className="absolute bg-black/90 rounded-2xl transition-all duration-300 ease-out"
+              className={`absolute bg-black/90 rounded-2xl transition-all duration-300 ease-out `}
               style={{
                 left: `${bgStyle.left}px`,
                 width: `${bgStyle.width}px`,
@@ -383,8 +417,19 @@ const Navbar = () => {
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
               >
-                <div className="px-4 py-2 text-center">
-                  <span className="text-[15.3px] md:text-[13.5px] font-normal text-white whitespace-nowrap">
+                <div className="px-4 py-2 text-center ">
+                  <span
+                    className={`
+    text-[15.3px] md:text-[13.5px] font-normal whitespace-nowrap
+    ${
+      isWhiteBg
+        ? hoveredIndex === index
+          ? "text-white"
+          : "text-black"
+        : "text-white"
+    }
+  `}
+                  >
                     {item.name}
                   </span>
                 </div>
