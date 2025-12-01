@@ -92,7 +92,7 @@ const Work = () => {
       name: "Techvenchure Dubai",
     },
     {
-      title: "Future of Data",
+      title: "Vols\nFuture of Data",
       subtitle: "Web App Development",
       video: "/Nv-studio.webm",
       url: "https://vols.noricai.com/",
@@ -156,7 +156,7 @@ const Work = () => {
 
   const [scrollY, setScrollY] = useState(0);
   return (
-    <div className="mt-10 p-3 lg:p-10">
+    <div className="p-3 lg:p-10">
       <div className="flex justify-between items-center">
         <div className="col-span-1">
           <p className=" font-normal text-[80px] tracking-[-4.91px]">Works</p>

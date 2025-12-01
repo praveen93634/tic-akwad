@@ -24,7 +24,7 @@ const HomeBanner = () => {
   const imgSeq = { frame: 0 };
 
   useEffect(() => {
-     const checkScreen = () => setIsMobile(window.innerWidth < 768);
+    const checkScreen = () => setIsMobile(window.innerWidth < 768);
     const canvas = canvasRef.current;
     if (!canvas) return;
     const context = canvas.getContext("2d");
@@ -36,6 +36,17 @@ const HomeBanner = () => {
       img.src = currentFrame(i);
       images.push(img);
     }
+    const loadImages = () => {
+      return Promise.all(
+        images.map(
+          (img) =>
+            new Promise<void>((resolve) => {
+              img.onload = () => resolve();
+            })
+        )
+      );
+    };
+
     const handleResize = () => {
       const canvas = canvasRef.current;
       if (!canvas) return;
@@ -78,10 +89,9 @@ const HomeBanner = () => {
       );
     };
 
-    images[0].onload = () => {
-      render();
-
-      // Canvas animation
+    loadImages().then(()=>{
+       render();
+       // Canvas animation
       gsap.to(imgSeq, {
         frame: totalFrames - 1,
         snap: "frame",
@@ -89,19 +99,26 @@ const HomeBanner = () => {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top top",
-          end:`+=${isMobile ? 1500 : 3500}`,
+          end: `+=${isMobile ? 1500 : 3500}`,
           scrub: 1,
           pin: true,
+          refreshPriority: 1, 
+          fastScrollEnd: true,
         },
         onUpdate: render,
-      });
-    };
- checkScreen();
-  window.addEventListener("resize", checkScreen);
+      }); 
+      ScrollTrigger.refresh()
+    // return () => window.removeEventListener("resize", checkScreen);
+    })
 
-  return () => window.removeEventListener("resize", checkScreen);
+    // ScrollTrigger.config({
+    //   autoRefreshEvents: "visibilitychange,DOMContentLoaded,load",
+    // });
+    // checkScreen();
+    // window.addEventListener("resize", checkScreen);
 
-  }, []);
+    return () => window.removeEventListener("resize", checkScreen);
+  }, [isMobile]);
 
   return (
     <section

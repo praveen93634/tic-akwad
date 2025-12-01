@@ -214,8 +214,8 @@ const Footer = () => {
             </span>
           </div>
 
-          <div className="flex justify-center text-[7px] lg:text-[21px]">
-            <div className="lg:w-40"></div>
+          <div className="flex justify-center text-[7px] lg:text-[16px]">
+            <div className="lg:w-65"></div>
             <ul className="flex font-light gap-1 lg:gap-3 opacity-90">
               <li>
                 <a href="#">Home</a>
