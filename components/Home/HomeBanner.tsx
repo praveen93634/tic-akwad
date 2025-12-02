@@ -17,7 +17,7 @@ const HomeBanner = () => {
   // const isMobile = window.innerWidth < 768;
   const currentFrame = (index: number) =>
     isMobile
-      ? `/door-mobile/${(index + 1).toString().padStart(5, "0")}.avif`
+      ? `/door-mobile/${(index + 1).toString().padStart(5, "0")}.webp`
       : `/door/${(index + 1).toString().padStart(5, "0")}.avif`;
 
   const images: HTMLImageElement[] = [];
@@ -106,10 +106,7 @@ const HomeBanner = () => {
         onUpdate: render,
       });
     };
-
-     setTimeout(() => {
         ScrollTrigger.refresh();
-      }, 200);
     // return () => window.removeEventListener("resize", checkScreen);
 
     // ScrollTrigger.config({
@@ -135,12 +132,12 @@ const HomeBanner = () => {
         />
 
         <div className="absolute inset-0 flex flex-col items-center justify-center z-20 px-10 h-2/3 translate-y-1/3">
-          <p className=" text-[30px] md:text-[60px] lg:text-[75px] tracking-[-3.6px] text-center font-[400] lg:font-normal leading-[40px] md:leading-[70px] lg:leading-[70px]  text-white mb-2">
+          <p className=" text-[30px] md:text-[60px] lg:text-[75px] tracking-[-2.6px]  lg:tracking-[-3.6px] text-center font-[400] lg:font-normal leading-[40px] md:leading-[70px] lg:leading-[70px]  text-white mb-2">
             A Web Branding House
           </p>
 
           <div>
-            <p className="max-w-3xl text-white font-light lg:text-[18px] leading-[23.94px] text-center mb-6">
+            <p className="max-w-3xl text-white font-light lg:text-[18px] leading-[23.94px] text-center mb-3">
               At The Internet Company, we craft immersive 3D CGI websites,
               striking brand identities, and digital experiences that redefine
               how audiences interact with brands online.

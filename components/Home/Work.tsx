@@ -159,7 +159,7 @@ const Work = () => {
     <div className="p-3 lg:p-10">
       <div className="flex justify-between items-center">
         <div className="col-span-1">
-          <p className=" font-normal text-[80px] tracking-[-4.91px]">Works</p>
+          <p className=" font-normal text-[50px] lg:text-[80px] tracking-[-3.91px] lg:tracking-[-4.91px]">Works</p>
         </div>
         <div>
           <Image
