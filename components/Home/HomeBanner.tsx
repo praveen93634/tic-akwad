@@ -24,99 +24,98 @@ const HomeBanner = () => {
   const imgSeq = { frame: 0 };
 
   useEffect(() => {
-    const checkScreen = () => setIsMobile(window.innerWidth < 768);
+  const images: HTMLImageElement[] = []; // local cache for this render
+  const imgSeq = { frame: 0 };
+
+  const checkScreen = () => setIsMobile(window.innerWidth < 768);
+  checkScreen();
+
+  window.addEventListener("resize", checkScreen);
+
+  const canvas = canvasRef.current;
+  if (!canvas) return;
+  const context = canvas.getContext("2d");
+  if (!context) return;
+  contextRef.current = context;
+
+  // Preload all images and cache
+  for (let i = 0; i < totalFrames; i++) {
+    const img = new Image();
+    img.src = currentFrame(i);
+    images.push(img);
+  }
+
+  // Return promise that resolves when all images are loaded once from cache or new
+  const loadImages = () =>
+    Promise.all(
+      images.map(
+        (img) =>
+          new Promise<void>((resolve) => {
+            if (img.complete) {
+              resolve();
+            } else {
+              img.onload = () => resolve();
+              img.onerror = () => resolve(); // handle load errors gracefully
+            }
+          })
+      )
+    );
+
+  const render = () => {
+    const img = images[imgSeq.frame];
+    if (!img || !img.complete) return;
+    const canvas = canvasRef.current;
+    const context = contextRef.current;
+    if (!canvas || !context) return;
+
+    const canvasWidth = canvas.width;
+    const canvasHeight = canvas.height;
+    const imgWidth = img.naturalWidth || img.width;
+    const imgHeight = img.naturalHeight || img.height;
+    if (imgWidth === 0 || imgHeight === 0) return;
+
+    const scale = Math.max(canvasWidth / imgWidth, canvasHeight / imgHeight);
+    const x = canvasWidth / 2 - (imgWidth / 2) * scale;
+    const y = canvasHeight / 2 - (imgHeight / 2) * scale;
+
+    context.clearRect(0, 0, canvasWidth, canvasHeight);
+    context.drawImage(img, 0, 0, imgWidth, imgHeight, x, y, imgWidth * scale, imgHeight * scale);
+  };
+
+  const handleResize = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const context = canvas.getContext("2d");
-    if (!context) return;
-    contextRef.current = context;
 
-    for (let i = 0; i < totalFrames; i++) {
-      const img = new Image();
-      img.src = currentFrame(i);
-      images.push(img);
-    }
-    const loadImages = () => {
-      return Promise.all(
-        images.map(
-          (img) =>
-            new Promise<void>((resolve) => {
-              img.onload = () => resolve();
-            })
-        )
-      );
-    };
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
-    const handleResize = () => {
-      const canvas = canvasRef.current;
-      if (!canvas) return;
+    render();
+  };
 
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+  // Wait for all images to load, then setup canvas and animation
+  loadImages().then(() => {
+    handleResize();
+    render();
 
-      render();
-    };
-    const render = () => {
-      const img = images[imgSeq.frame];
-      if (!img || !img.complete) return;
-      const canvas = canvasRef.current;
-      const context = contextRef.current;
-      if (!canvas || !context) return;
+    gsap.to(imgSeq, {
+      frame: totalFrames - 1,
+      snap: "frame",
+      ease: "none",
+      onUpdate: render,
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top top",
+        end: `+=${isMobile ? 1500 : 3500}`,
+        scrub: 1,
+        pin: true,
+      },
+    });
 
-      const canvasWidth = canvas.width;
-      const canvasHeight = canvas.height;
-      const imgWidth = img.naturalWidth || img.width;
-      const imgHeight = img.naturalHeight || img.height;
+    ScrollTrigger.refresh();
+  });
 
-      if (imgWidth === 0 || imgHeight === 0) return;
-
-      const scale = Math.max(canvasWidth / imgWidth, canvasHeight / imgHeight);
-
-      const x = canvasWidth / 2 - (imgWidth / 2) * scale;
-      const y = canvasHeight / 2 - (imgHeight / 2) * scale;
-
-      context.clearRect(0, 0, canvasWidth, canvasHeight);
-      context.drawImage(
-        img,
-        0,
-        0,
-        imgWidth,
-        imgHeight,
-        x,
-        y,
-        imgWidth * scale,
-        imgHeight * scale
-      );
-    };
-
-    images[0].onload = () => {
-      render();
-      // Canvas animation
-      gsap.to(imgSeq, {
-        frame: totalFrames - 1,
-        snap: "frame",
-        ease: "none",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top top",
-          end: `+=${isMobile ? 1500 : 3500}`,
-          scrub: 1,
-          pin: true,
-        },
-        onUpdate: render,
-      });
-    };
-        ScrollTrigger.refresh();
-    // return () => window.removeEventListener("resize", checkScreen);
-
-    // ScrollTrigger.config({
-    //   autoRefreshEvents: "visibilitychange,DOMContentLoaded,load",
-    // });
-    checkScreen();
-    window.addEventListener("resize", checkScreen);
-
-    return () => window.removeEventListener("resize", checkScreen);
-  }, [isMobile]);
+  return () => window.removeEventListener("resize", checkScreen);
+}, [isMobile]);
 
   return (
     <section
