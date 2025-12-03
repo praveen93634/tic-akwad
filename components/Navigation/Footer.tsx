@@ -194,20 +194,20 @@ const Footer = () => {
                 <a href="#">Home</a>
               </li>
               <li>
-                <a href="#">About</a>
+                <a href="/about">About</a>
               </li>
               <li>
-                <a href="#">Archives</a>
+                <a href="/archive">Archives</a>
               </li>
               <li>
-                <a href="#">Design House</a>
+                <a href="/design-house">Design House</a>
               </li>
               <li>
-                <a href="#">Client Portal</a>
+                <a href="/client">Client Portal</a>
               </li>
-              <li>
+              {/* <li>
                 <a href="#">Contact Us</a>
-              </li>
+              </li> */}
             </ul>
             <h1 className="opacity-80 font-light text-[12px] lg:text-[16px]">© Copyrights The Internet Company</h1>
           </div>
@@ -225,10 +225,10 @@ const Footer = () => {
            
               <ul className="flex gap-2 lg:gap-4 opacity-80">
               <li>
-                <a href="#">LinkedIn</a>
+                <a href="https://www.linkedin.com/company/tic-global-services/">LinkedIn</a>
               </li>
               <li>
-                <a href="#">Instagram</a>
+                <a href="https://www.instagram.com/the.internetcompany">Instagram</a>
               </li>
               <li>
                 <a href="#">Privacy Policy</a>
