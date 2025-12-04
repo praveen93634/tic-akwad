@@ -143,7 +143,7 @@ const Footer = () => {
                     <div className="relative z-10 h-full flex flex-col justify-between p-5 sm:p-6 md:p-8">
                       {/* Title at Top */}
                       <div>
-                        <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl max-w-full sm:max-w-[400px] md:max-w-[470px] leading-tight sm:leading-[40px] md:leading-[50px] tracking-[-0.07em] font-normal text-black">
+                        <h3 className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl max-w-full sm:max-w-[400px] md:max-w-[470px] leading-tight sm:leading-[40px] md:leading-[50px] tracking-[-0.07em] font-normal ${index==0 ?"text-white" : "text-black"} `}>
                           {item.name}
                         </h3>
                       </div>
