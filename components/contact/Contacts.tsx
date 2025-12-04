@@ -19,7 +19,7 @@ const Contacts = () => {
       <div className="mt-40">
             <section className="w-full md:px-10 lg:px-5 py-5">
               {/* TOP Heading */}
-              <h1 className="text-black text-4xl md:text-6xl lg:text-7xl font-normal leading-[72px] max-w-4xl mb-12">
+                <h1 className="text-black text-4xl md:text-6xl lg:text-7xl font-normal leading-[72px] tracking-[-2.63px] max-w-4xl mb-12">
                 We're always looking
                 <br /> for new collaborations.
               </h1>
@@ -29,7 +29,7 @@ const Contacts = () => {
                   <div key={index} className="pb-5 border-b border-black/50">
                     <div className="grid grid-cols-2 lg:grid-cols-3 items-center text-start">
                       
-                      <h2 className="text-[20px] md:text-[38px] lg:text-[44px] font-normal whitespace-pre-line text-black leading-[45.53px] ">
+                      <h2 className="text-[20px] md:text-[38px] lg:text-[44px] font-normal whitespace-pre-line text-black leading-[45.53px] tracking-[-2.63px] ">
                         {item.designation}
                       </h2>
 
